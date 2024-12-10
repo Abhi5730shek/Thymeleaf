@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task</title>
+  </head>
+  <body>
+    <div align="center">
+      <h1>Task</h1>
+      <a href="/otp"><button>OTP</button></a>
+      <div th:if="${otp}">
+        <h1>The OTP is :<span th:text="${otp}"></span></h1>
+      </div>
+      <br /><br />
+      <form action="/print" method="post">
+        Enter Color: <input type="text" th:value="${color}" name="color" /><br /><br />
+        Enter height: <input type="number" th:value="${height}" name="height" /><br /><br />
+        Enter width: <input type="number" th:value="${width}" name="width" /><br /><br />
+        <button>Print</button>
+      </form>
+      <br /><br />
+      <div
+        th:if="${color}"
+        th:style="'background-color:'+${color}+';height:'+${height}+'px;width:'+${width}+'px;'"
+      ></div>
+    </div>
+  </body>
+</html>
